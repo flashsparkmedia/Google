@@ -2,7 +2,7 @@
   "name": "@flashsparkmedia/google",
   "version": "1.0.0",
   "description": "Google APIs Library",
-  "main": "index.js",
+  "main": "Google.js",
   "keywords": [],
   "author": "flashsparkmedia",
   "license": "ISC",
