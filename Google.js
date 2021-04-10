@@ -1,11 +1,11 @@
-const createServices = require('./lib/create_services')
-const getAccessToken = require('./lib/get_access_token')
-const createFolder = require('./lib/create_folder')
-const destroyFolder = require('./lib/destroy_folder')
-const createPermission = require('./lib/create_permission')
-const uploadFile = require('./lib/upload_file')
-const copyFile = require('./lib/copy_file')
-const verifyUser = require('./lib/verify_user')
+const createServices = require('./src/lib/create_services')
+const getAccessToken = require('./src/lib/get_access_token')
+const createFolder = require('./src/lib/create_folder')
+const destroyFolder = require('./src/lib/destroy_folder')
+const createPermission = require('./src/lib/create_permission')
+const uploadFile = require('./src/lib/upload_file')
+const copyFile = require('./src/lib/copy_file')
+const verifyUser = require('./src/lib/verify_user')
 
 let instance
 
@@ -16,7 +16,7 @@ class Google {
         this.client_secret = options.client_secret
         this.refresh_url = 'https://www.googleapis.com/oauth2/v4/token'
         this.domain = options.domain
-        this.drive_temp_upload_folder_id = options.drive_temp_upload_folder_id
+        this.root_upload_folder_id = options.root_upload_folder_id
     }
 
     createServices = createServices.bind(this)
