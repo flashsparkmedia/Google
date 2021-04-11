@@ -29,9 +29,9 @@ class Google {
     verifyUser = verifyUser.bind(this)
 }
 
-module.exports = (options => {
+module.exports = options => {
     if (!instance) {
         instance = new Google(options)
     }
     return instance
-})(options)
+}
