@@ -4,7 +4,7 @@ async function destroyFolder(parentFolder) {
         console.log(result)
         return true
     } catch (e) {
-        throw new Error(`Error destorying Google folder: ${e.data}`)
+        throw new Error(e)
     }
 }
 

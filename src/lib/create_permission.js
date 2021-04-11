@@ -10,7 +10,7 @@ async function createPermission(fileId) {
         const result = await this.drive.permissions.create({ fileId, resource })
         return result.data
     } catch (e) {
-        throw new Error(`Error creating file permission: ${e.data}`)
+        throw new Error(e)
     }
 }
 

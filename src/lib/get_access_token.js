@@ -14,7 +14,7 @@ async function getAccessToken() {
 
         return response.data.access_token
     } catch (e) {
-        throw new Error(`Error requsting access token: ${e.response.data.error}`)
+        throw new Error(e)
     }
 }
 

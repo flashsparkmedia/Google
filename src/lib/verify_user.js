@@ -7,7 +7,7 @@ async function verifyUser(idToken) {
 
         return googleUser.getPayload()
     } catch(e) {
-        throw new Error(`Error verifying google user: ${e}`)
+        throw new Error(e)
     }
 }
 

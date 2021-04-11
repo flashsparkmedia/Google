@@ -17,7 +17,7 @@ async function uploadFile(fileName, filePath) {
     try {
         result = await this.drive.files.create({ resource, media, fields: '*' })
     } catch (e) {
-        throw new BadRequestError(`Error uploading file to Google`, e)
+        throw new BadRequestError(e)
     }
 
     await this.createPermission(result.data.id)

@@ -12,7 +12,7 @@ async function createFolder(folderName, parentFolder = this.root_upload_folder_i
         const result = await this.drive.files.create({ resource, fields: '*' })
         return result.data
     } catch(e) {
-        throw new Error(`Error creating folder: ${e.data}`)
+        throw new Error(e)
     }
 }
 
