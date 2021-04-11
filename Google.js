@@ -29,9 +29,12 @@ class Google {
     verifyUser = verifyUser.bind(this)
 }
 
-module.exports = options => {
-    if (!instance) {
-        instance = new Google(options)
+module.exports = {
+    getInstance(options) {
+      if (!instance) {
+        // only the first call to getInstance will use these options to create an instance
+        instance = new Google(options);
+      } 
+      return instance;
     }
-    return instance
-}
+  }
