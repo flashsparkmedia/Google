@@ -20,7 +20,6 @@ class Google {
         this.createServices()
     }
 
-    createDrive = createDrive.bind(this)
     createServices = createServices.bind(this)
     getAccessToken = getAccessToken.bind(this)
     createFolder = createFolder.bind(this)

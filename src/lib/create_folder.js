@@ -1,6 +1,4 @@
 async function createFolder(folderName, parentFolder = this.root_upload_folder_id) {
-
-    await this.createServices() 
     
     const resource = {
         name: folderName,
