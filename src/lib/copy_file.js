@@ -1,4 +1,4 @@
-async function copyFile() {
+async function copyFile(fileId, parentFolder) {
     try {
         const result = await this.drive.files.copy({ fileId, parents: [parentFolder], fields: '*' })
         return result
