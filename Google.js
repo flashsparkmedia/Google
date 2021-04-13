@@ -5,6 +5,7 @@ const destroyFolder = require('./src/lib/destroy_folder')
 const createPermission = require('./src/lib/create_permission')
 const uploadFile = require('./src/lib/upload_file')
 const copyFile = require('./src/lib/copy_file')
+const moveFile = require('./src/move_file')
 const verifyUser = require('./src/lib/verify_user')
 
 let instance
@@ -28,6 +29,7 @@ class Google {
     uploadFile = uploadFile.bind(this)
     copyFile = copyFile.bind(this)
     verifyUser = verifyUser.bind(this)
+    moveFile = moveFile.bind(this)
 }
 
 module.exports = {
