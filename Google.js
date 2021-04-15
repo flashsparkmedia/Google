@@ -5,7 +5,7 @@ const destroyFolder = require('./src/lib/destroy_folder')
 const createPermission = require('./src/lib/create_permission')
 const uploadFile = require('./src/lib/upload_file')
 const copyFile = require('./src/lib/copy_file')
-const moveFile = require('./src/move_file')
+const moveFile = require('./src/lib/move_file')
 const verifyUser = require('./src/lib/verify_user')
 
 let instance
