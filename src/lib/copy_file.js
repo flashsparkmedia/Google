@@ -7,4 +7,4 @@ async function copyFile(fileId, parentFolder) {
     }
 }
 
-module.exports = copyFile
+module.exports = copyFiles
