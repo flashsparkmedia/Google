@@ -27,6 +27,7 @@ class Google {
     destroyFolder = destroyFolder.bind(this)
     createPermission = createPermission.bind(this)
     uploadFile = uploadFile.bind(this)
+    uploadContract = uploadContract.bind(this)
     copyFile = copyFile.bind(this)
     verifyUser = verifyUser.bind(this)
     moveFile = moveFile.bind(this)
