@@ -2,10 +2,8 @@ const axios = require('axios')
 
 async function getAccessToken() {
 
-    if (this.accessToken) {
-        console.log('token exists', this.accessToken)
-        return this.accessToken
-    }
+    const accessToken = this.getAccessToken()
+    if (accessToken !== null) return accessToken
     
     try {
         const response = await axios({
@@ -18,6 +16,7 @@ async function getAccessToken() {
         })
 
         this.setAccessToken(response.data.access_token)
+        setTimeout(() => this.setAccessToken(null), 45 * 60 * 1000)
         return response.data.access_token
     } catch (e) {
         throw new Error(e)
