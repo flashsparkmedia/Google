@@ -3,6 +3,7 @@ const axios = require('axios')
 async function getAccessToken() {
 
     const accessToken = this.getAccessToken()
+    console.log(accessToken)
     if (accessToken !== null) return accessToken
     
     try {
