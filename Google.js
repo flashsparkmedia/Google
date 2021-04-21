@@ -8,6 +8,7 @@ const uploadContract = require('./src/lib/upload_contract')
 const copyFile = require('./src/lib/copy_file')
 const moveFile = require('./src/lib/move_file')
 const verifyUser = require('./src/lib/verify_user')
+const setAccessToken = require('./src/set_access_token')
 
 let instance
 
@@ -32,13 +33,7 @@ class Google {
     copyFile = copyFile.bind(this)
     verifyUser = verifyUser.bind(this)
     moveFile = moveFile.bind(this)
-
-    setAccessToken = token => {
-      this.accessToken = token
-      setTimeout(() => {
-        this.accessToken = null
-      }, 30 * 60 * 1000)
-    }
+    setAccessToken = setAccessToken.bind(this)
 }
 
 module.exports = {
