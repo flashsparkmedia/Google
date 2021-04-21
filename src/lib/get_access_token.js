@@ -2,7 +2,10 @@ const axios = require('axios')
 
 async function getAccessToken() {
 
-    if (this.accessToken) return this.accessToken
+    if (this.accessToken) {
+        console.log('token exists', this.accessToken)
+        return this.accessToken
+    }
     
     try {
         const response = await axios({
