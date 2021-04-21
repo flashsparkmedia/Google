@@ -8,7 +8,7 @@ const uploadContract = require('./src/lib/upload_contract')
 const copyFile = require('./src/lib/copy_file')
 const moveFile = require('./src/lib/move_file')
 const verifyUser = require('./src/lib/verify_user')
-const setAccessToken = require('./src/set_access_token')
+const setAccessToken = require('./src/lib/set_access_token')
 
 let instance
 
