@@ -20,6 +20,7 @@ class Google {
         this.refresh_url = 'https://www.googleapis.com/oauth2/v4/token'
         this.domain = options.domain
         this.root_upload_folder_id = options.root_upload_folder_id
+        this.accessToken = null
         this.createServices()
     }
 
