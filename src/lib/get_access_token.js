@@ -1,6 +1,8 @@
 const axios = require('axios')
 
 async function getAccessToken() {
+
+    if (this.accessToken) return this.accessToken
     
     try {
         const response = await axios({
@@ -12,6 +14,7 @@ async function getAccessToken() {
             data: `grant_type=refresh_token&client_id=${encodeURIComponent(this.client_id)}&client_secret=${encodeURIComponent(this.client_secret)}&refresh_token=${encodeURIComponent(this.refresh_token)}`
         })
 
+        this.setAccessToken(response.data.access_token)
         return response.data.access_token
     } catch (e) {
         throw new Error(e)
