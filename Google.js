@@ -36,7 +36,7 @@ class Google {
     moveFile = moveFile.bind(this)
     // setAccessToken = setAccessToken.bind(this)
 
-    setAccessToken = function() {
+    setAccessToken = function(token) {
       this.accessToken = token
 
       return setTimeout(() => {
