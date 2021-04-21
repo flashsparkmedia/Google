@@ -32,6 +32,13 @@ class Google {
     copyFile = copyFile.bind(this)
     verifyUser = verifyUser.bind(this)
     moveFile = moveFile.bind(this)
+
+    setAccessToken = token => {
+      this.accessToken = token
+      setTimeout(() => {
+        this.accessToken = null
+      }, 30 * 60 * 1000)
+    }
 }
 
 module.exports = {
