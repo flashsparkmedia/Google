@@ -1,6 +1,6 @@
 {
   "name": "@flashsparkmedia/google",
-  "version": "1.0.50",
+  "version": "1.0.51",
   "description": "Google APIs Library",
   "main": "Google.js",
   "keywords": [],
