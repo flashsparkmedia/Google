@@ -1,5 +1,4 @@
 async function getFiles(keyword) {
-    console.log(keyword)
     try {
         return await this.drive.files.list({
             q: `name="${keyword}"`

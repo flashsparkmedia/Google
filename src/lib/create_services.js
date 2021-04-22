@@ -2,6 +2,7 @@ const { google } = require('googleapis')
 
 async function createServices() {
     const accessToken = await this.generateAccessToken()
+    console.log('access token', accessToken)
     this.setAccessToken(accessToken)
 
     this.client = new google.auth.OAuth2(
@@ -10,13 +11,14 @@ async function createServices() {
         this.domain
     );
 
+
     this.client.setCredentials({ access_token: accessToken, refresh_token: this.refresh_token})
 
     const version = 'v3'
     const auth = this.client
 
     this.drive = google.drive({ version, auth })
-    this.analytics = google.analytics({ version, auth })
+    // this.analytics = google.analytics({ version, auth })
 }
 
 module.exports = createServices
