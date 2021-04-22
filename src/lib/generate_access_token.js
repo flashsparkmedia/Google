@@ -22,6 +22,7 @@ async function generateAccessToken() {
         setTimeout(() => this.setAccessToken(null), 45 * 60 * 1000)
         return response.data.access_token
     } catch (e) {
+        console.log('Error here - ', e)
         throw new Error(e)
     }
 }
