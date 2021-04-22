@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-async function getAccessToken() {
+async function generateAccessToken() {
 
     const accessToken = this.getAccessToken()
     console.log(accessToken)
@@ -24,4 +24,4 @@ async function getAccessToken() {
     }
 }
 
-module.exports = getAccessToken
+module.exports = generateAccessToken
