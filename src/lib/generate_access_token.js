@@ -3,8 +3,10 @@ const axios = require('axios')
 async function generateAccessToken() {
 
     const accessToken = this.getAccessToken()
-    console.log(accessToken)
-    if (accessToken !== null) return accessToken
+    if (accessToken !== null) {
+        console.log('token already established')
+        return accessToken
+    }
     
     try {
         const response = await axios({
