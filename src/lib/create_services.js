@@ -2,6 +2,7 @@ const { google } = require('googleapis')
 
 async function createServices() {
     const accessToken = await this.getAccessToken()
+    console.log(accessToken )
 
     this.client = new google.auth.OAuth2(
         this.client_id,
