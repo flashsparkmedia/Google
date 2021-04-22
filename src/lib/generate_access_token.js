@@ -4,9 +4,9 @@ async function generateAccessToken() {
 
     const accessToken = this.getAccessToken()
     if (accessToken !== null) {
-        console.log('token already established')
+        console.log('access token already established')
         return accessToken
-    }
+    } else console.log('generating new access token')
     
     try {
         const response = await axios({
