@@ -1,7 +1,8 @@
 const TextCleaner = require('text-cleaner')
 const fs = require('fs')
+const generateAccessToken = require('./generate_access_token')
 
-async function uploadFile(fileName, filePath) {
+async function uploadFile(fileName, filePath, retry=false) {
     let result 
 
     const resource = {

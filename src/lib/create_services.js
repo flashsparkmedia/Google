@@ -10,7 +10,6 @@ async function createServices() {
         this.domain
     );
 
-
     this.client.setCredentials({ access_token: accessToken, refresh_token: this.refresh_token})
 
     const version = 'v3'

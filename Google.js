@@ -22,6 +22,8 @@ class Google {
         this.root_upload_folder_id = options.root_upload_folder_id
         this.accessToken = null
         this.createServices()
+
+        setInterval(this.generateAccessToken, 30 * 60 & 1000)
     }
 
     createServices = createServices.bind(this)
