@@ -45,7 +45,6 @@ class Google {
       setInterval(this.getAccessToken, 1800000)
     }
 
-    createServices = createServices.bind(this)
     getAccessToken = getAccessToken.bind(this)
     createFolder = createFolder.bind(this)
     destroyFolder = destroyFolder.bind(this)
