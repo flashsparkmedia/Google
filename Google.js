@@ -23,7 +23,12 @@ class Google {
         this.accessToken = null
         this.createServices()
 
-        setInterval(this.generateAccessToken, 30 * 60 & 1000)
+        this.init()
+    }
+
+    init = async () => {
+      this.accessToken = await this.getAccessToken()
+      setInterval(this.getAccessToken, 1800000)
     }
 
     createServices = createServices.bind(this)
