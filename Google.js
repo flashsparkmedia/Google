@@ -33,17 +33,27 @@ class Google {
     }
 
     init = async () => {
+      let accessToken
+      try {
+        accessToken = await this.getAccessToken()
+      } catch (e) {
+        throw new Error('Unable to retrieve google access token', e)
+      }
 
-      console.log('ran')
-      const accessToken = await this.getAccessToken()
+      try {
+        this.client.setCredentials({ access_token: this.accessToken, refresh_token: this.refresh_token})
+      } catch (e) {
+        throw new Error('Error setting google client credentials', e)
+      }
 
-      console.log(accessToken)
-
-      this.client.setCredentials({ access_token: this.accessToken, refresh_token: this.refresh_token})
-      const version = 'v3'
-      const auth = this.client
-
-      this.drive = google.drive({ version, auth })
+      try {
+        const version = 'v3'
+        const auth = this.client
+        this.drive = google.drive({ version, auth })
+      } catch(e) {
+        throw new Error('Error creating google drive', e)
+      }
+      
       // this.analytics = google.analytics({ version, auth })
       setInterval(this.getAccessToken, 1800000)
     }
