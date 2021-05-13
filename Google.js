@@ -1,4 +1,5 @@
-const createServices = require('./src/lib/create_services')
+const { google } = require('googleapis')
+
 const getAccessToken = require('./src/lib/get_access_token')
 const createFolder = require('./src/lib/create_folder')
 const destroyFolder = require('./src/lib/destroy_folder')
@@ -21,13 +22,26 @@ class Google {
         this.domain = options.domain
         this.root_upload_folder_id = options.root_upload_folder_id
         this.accessToken = null
-        this.createServices()
 
         this.init()
     }
 
     init = async () => {
+
+      this.client = new google.auth.OAuth2(
+        this.client_id,
+        this.client_secret,
+        this.domain
+      );
+
       this.accessToken = await this.getAccessToken()
+
+      this.client.setCredentials({ access_token: this.accessToken, refresh_token: this.refresh_token})
+      const version = 'v3'
+      const auth = this.client
+
+      this.drive = google.drive({ version, auth })
+      // this.analytics = google.analytics({ version, auth })
       setInterval(this.getAccessToken, 1800000)
     }
 
