@@ -23,18 +23,22 @@ class Google {
         this.root_upload_folder_id = options.root_upload_folder_id
         this.accessToken = null
 
+        this.client = new google.auth.OAuth2(
+          this.client_id,
+          this.client_secret,
+          this.domain
+        );
+
         this.init()
     }
 
     init = async () => {
 
-      this.client = new google.auth.OAuth2(
-        this.client_id,
-        this.client_secret,
-        this.domain
-      );
+      console.log('ran')
 
       this.accessToken = await this.getAccessToken()
+
+      console.log(this.accessToken)
 
       this.client.setCredentials({ access_token: this.accessToken, refresh_token: this.refresh_token})
       const version = 'v3'
