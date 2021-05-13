@@ -13,6 +13,7 @@ async function getAccessToken() {
         })
 
         this.accessToken = response.data.access_token
+        return response.data.access_token
     } catch (e) {
         console.log('Error here - ', e)
         throw new Error(e)

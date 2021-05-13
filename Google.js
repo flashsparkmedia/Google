@@ -35,10 +35,9 @@ class Google {
     init = async () => {
 
       console.log('ran')
+      const accessToken = await this.getAccessToken()
 
-      this.accessToken = await this.getAccessToken()
-
-      console.log(this.accessToken)
+      console.log(accessToken)
 
       this.client.setCredentials({ access_token: this.accessToken, refresh_token: this.refresh_token})
       const version = 'v3'
