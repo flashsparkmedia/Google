@@ -1,5 +1,5 @@
 const createServices = require('./src/lib/create_services')
-const generateAccessToken = require('./src/lib/generate_access_token')
+const getAccessToken = require('./src/lib/get_access_token')
 const createFolder = require('./src/lib/create_folder')
 const destroyFolder = require('./src/lib/destroy_folder')
 const createPermission = require('./src/lib/create_permission')
@@ -32,7 +32,7 @@ class Google {
     }
 
     createServices = createServices.bind(this)
-    generateAccessToken = generateAccessToken.bind(this)
+    getAccessToken = getAccessToken.bind(this)
     createFolder = createFolder.bind(this)
     destroyFolder = destroyFolder.bind(this)
     createPermission = createPermission.bind(this)
@@ -42,9 +42,6 @@ class Google {
     verifyUser = verifyUser.bind(this)
     moveFile = moveFile.bind(this)
     getFiles = getFiles.bind(this)
-
-    setAccessToken = token => this.accessToken = token
-    getAccessToken = () => this.accessToken
 }
 
 module.exports = {
