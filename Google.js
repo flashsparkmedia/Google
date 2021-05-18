@@ -29,6 +29,16 @@ class Google {
           this.domain
         );
 
+        this.client.on('tokens', tokens => {
+          console.log('tokens', tokens)
+          if (tokens.refresh_token) {
+            this.refresh_token = this.refresh_token
+          }
+          if (tokens.access_token) {
+            this.accessToken = tokens.access_token
+          }
+        })
+
         this.init()
     }
 
@@ -55,7 +65,6 @@ class Google {
       }
       
       // this.analytics = google.analytics({ version, auth })
-      setInterval(this.getAccessToken, 1800000)
     }
 
     getAccessToken = getAccessToken.bind(this)
