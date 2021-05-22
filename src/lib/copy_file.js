@@ -1,4 +1,4 @@
-async function copyFile(fileId, parentFolder, retry = false) {
+async function copyFile(fileId, parentFolder) {
     const drive = await this.createDrive()
     
     try {
