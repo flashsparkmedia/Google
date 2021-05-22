@@ -13,7 +13,7 @@ async function getAccessToken() {
     }
 
     try {
-        const response = await request(this.refresh_url, refresh_request)
+        const response = await axios(this.refresh_url, refresh_request)
         const body = JSON.parse(response.body)
 
         if (body.access_token) {
