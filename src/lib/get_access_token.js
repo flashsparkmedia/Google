@@ -14,16 +14,15 @@ async function getAccessToken() {
 
     try {
         const response = await axios(this.refresh_url, refresh_request)
-        const body = JSON.parse(response.body)
 
-        if (body.access_token) {
-            return body.access_token
+        if (response.data.access_token) {
+            return response.data.access_token
         } else {
-            console.log(body)
+            console.log(response.data)
             throw new Error('Error creating Google token.')
         }
     } catch (e) {
-        console.log(e)
+        console.log(e.response)
         throw new Error('Error creating Google token.')
     }
 }
