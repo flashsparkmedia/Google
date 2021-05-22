@@ -32,10 +32,10 @@ class Google {
         this.client.on('tokens', tokens => {
           console.log('tokens', tokens)
           if (tokens.refresh_token) {
-            this.refresh_token = this.refresh_token
+            this.client.setCredentials({ refresh_token: tokens.refresh_token })
           }
           if (tokens.access_token) {
-            this.accessToken = tokens.access_token
+            this.client.setCredentials({ access_token: tokens.access_toke })
           }
         })
 
