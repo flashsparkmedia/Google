@@ -13,3 +13,5 @@ async function createDrive() {
     const drive = google.drive({ version: 'v3', auth: this.client })
     return drive
 }
+
+module.exports = createDrive
