@@ -1,8 +1,11 @@
+const { google } = require('googleapis')
 const TextCleaner = require('text-cleaner')
 const fs = require('fs')
 
-async function uploadFile(fileName, filePath, retry=false) {
+async function uploadFile(fileName, filePath) {
     let result 
+
+    const drive = await this.createDrive()
 
     const resource = {
         name: TextCleaner(fileName).removeChars({ exclude: '.' }).replace(' ', ''),
@@ -15,7 +18,7 @@ async function uploadFile(fileName, filePath, retry=false) {
     }
 
     try {
-        result = await this.drive.files.create({ resource, media, fields: '*' })
+        result = await drive.files.create({ resource, media, fields: '*' })
     } catch (e) {
         throw new Error(e)
     }

@@ -3,6 +3,8 @@ const fs = require('fs')
 async function uploadContract(fileName, filePath, formsFolder)  {
     let result 
 
+    const drive = await this.createDrive()
+
     const resource = {
         name: fileName,
         parents: [formsFolder]
@@ -14,7 +16,7 @@ async function uploadContract(fileName, filePath, formsFolder)  {
     }
 
     try {
-        result = await this.drive.files.create({ resource, media, fields: '*' })
+        result = await drive.files.create({ resource, media, fields: '*' })
     } catch (e) {
         throw new Error(e)
     }

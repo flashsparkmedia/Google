@@ -1,5 +1,6 @@
 const { google } = require('googleapis')
 
+const createDrive = require('./src/lib/create_drive')
 const getAccessToken = require('./src/lib/get_access_token')
 const createFolder = require('./src/lib/create_folder')
 const destroyFolder = require('./src/lib/destroy_folder')
@@ -21,52 +22,9 @@ class Google {
         this.refresh_url = 'https://www.googleapis.com/oauth2/v4/token'
         this.domain = options.domain
         this.root_upload_folder_id = options.root_upload_folder_id
-        this.accessToken = null
-
-        this.client = new google.auth.OAuth2(
-          this.client_id,
-          this.client_secret,
-          this.domain
-        );
-
-        this.client.on('tokens', tokens => {
-          console.log('tokens', tokens)
-          if (tokens.refresh_token) {
-            this.client.setCredentials({ refresh_token: tokens.refresh_token })
-          }
-          if (tokens.access_token) {
-            this.client.setCredentials({ access_token: tokens.access_toke })
-          }
-        })
-
-        this.init()
     }
 
-    init = async () => {
-      let accessToken
-      try {
-        accessToken = await this.getAccessToken()
-      } catch (e) {
-        throw new Error('Unable to retrieve google access token', e)
-      }
-
-      try {
-        this.client.setCredentials({ access_token: this.accessToken, refresh_token: this.refresh_token})
-      } catch (e) {
-        throw new Error('Error setting google client credentials', e)
-      }
-
-      try {
-        const version = 'v3'
-        const auth = this.client
-        this.drive = google.drive({ version, auth })
-      } catch(e) {
-        throw new Error('Error creating google drive', e)
-      }
-      
-      // this.analytics = google.analytics({ version, auth })
-    }
-
+    createDrive = createDrive.bind(this)
     getAccessToken = getAccessToken.bind(this)
     createFolder = createFolder.bind(this)
     destroyFolder = destroyFolder.bind(this)

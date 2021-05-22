@@ -1,6 +1,9 @@
 async function getFiles(keyword) {
+
+    const drive = await this.createDrive()
+
     try {
-        return await this.drive.files.list({
+        return await drive.files.list({
             q: `name="${keyword}"`
         })
         
