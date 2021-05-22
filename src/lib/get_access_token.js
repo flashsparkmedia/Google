@@ -19,9 +19,11 @@ async function getAccessToken() {
         if (body.access_token) {
             return body.access_token
         } else {
+            conosle.log(body)
             throw new Error('Error creating Google token.')
         }
     } catch (e) {
+        console.log(e)
         throw new Error('Error creating Google token.')
     }
 }
